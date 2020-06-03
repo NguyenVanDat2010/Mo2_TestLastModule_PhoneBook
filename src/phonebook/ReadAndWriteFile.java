@@ -42,7 +42,7 @@ public class ReadAndWriteFile {
         } catch (FileNotFoundException fileNotFoundException) {
             fileNotFoundException.printStackTrace();
         } catch (EOFException e) {
-            System.out.println("het file");
+            System.out.println("Hết file");
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {

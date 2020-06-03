@@ -16,7 +16,7 @@ public class Main {
     }
 
     public static void menuPhoneBook(){
-        System.out.println("Chọn chức năng theo số để tiếp tục: ");
+        System.out.println("\n----------MENU CHỨC NĂNG: -----------");
         System.out.println("1: Xem danh sách");
         System.out.println("2: Thêm mới");
         System.out.println("3: Cập nhật");
@@ -25,6 +25,7 @@ public class Main {
         System.out.println("6: Ghi vào file");
         System.out.println("7: Đọc từ file");
         System.out.println("8: Thoát");
+        System.out.println("\nCHỌN CHỨC NĂNG ĐỂ TIẾP TỤC: ");
     }
     public static void main(String[] args) {
         PhoneBookAction phoneBookAction = new PhoneBookAction();
@@ -34,16 +35,7 @@ public class Main {
         String path = "test.data";
         int num = 0;
         while (num != 8) {
-            System.out.println("----------MENU CHỨC NĂNG: -----------");
-            System.out.println("1: Xem danh sách");
-            System.out.println("2: Thêm mới");
-            System.out.println("3: Cập nhật");
-            System.out.println("4: Xóa");
-            System.out.println("5: Tìm kiếm");
-            System.out.println("6: Ghi vào file");
-            System.out.println("7: Đọc từ file");
-            System.out.println("8: Thoát");
-            System.out.println("\nCHỌN CHỨC NĂNG ĐỂ TIẾP TỤC: ");
+            menuPhoneBook();
             num = scanner.nextInt();
 
             switch (num) {
@@ -68,13 +60,14 @@ public class Main {
                     phoneBookAction.searchPhoneBook(phoneBookList);
                     break;
                 case 6:
-                    System.out.println("GHI VÀO FILE .DATA");
+                    System.out.println("GHI VÀO FILE .DATA\n");
                     readAndWriteFile.writeFileCSV(path, phoneBookList);
                     break;
                 case 7:
-                    System.out.println("ĐỌC TỪ FILE .DATA");
-                    phoneBookList = readAndWriteFile.readFileCSV(path);
-                    for (PhoneBook phoneBook : phoneBookList) {
+                    System.out.println("ĐỌC TỪ FILE .DATA\n");
+                    List<PhoneBook>list=new ArrayList<>();
+                    list = readAndWriteFile.readFileCSV(path);
+                    for (PhoneBook phoneBook : list) {
                         System.out.println(phoneBook);
                     }
                     break;
